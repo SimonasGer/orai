@@ -45,9 +45,11 @@ const SearchForm = () => {
             <fieldset>
                 <input placeholder="Vietovė" list="places" value={location} onChange={(e) => setLocation(e.target.value)}/>
                 <datalist id="places">
-                {locations.map((city) => (
-                        <option value={`${city.name}, ${city.administrativeDivision}`}></option>
-                    ))}
+                    <select value={location} onChange={(e) => setLocation(e.target.value)}>
+                        {locations.map((city) => (
+                            <option value={`${city.name}, ${city.administrativeDivision}`}></option>
+                        ))}
+                    </select>
                 </datalist>
                 <button type="submit" disabled={button}>Ieškoti</button>
             </fieldset>
