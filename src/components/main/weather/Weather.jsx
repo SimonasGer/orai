@@ -39,7 +39,7 @@ const Weather = (props) => {
     }, [loading, city.code])
     return(
         <section>
-            <h2>{city.name || "ass"}</h2>
+            <h2>{city.name}</h2>
             <p>{getDate().slice(0, 13)}h</p>
             <p>{weather.conditionCode}</p>
             <p>{weather.airTemperature} °C</p>
