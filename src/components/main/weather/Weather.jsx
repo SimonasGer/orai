@@ -19,24 +19,24 @@ const Weather = (props) => {
     });
 
     const city = props.city
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             setLoading(false)
-    //             const data = await fetchWeather(city.code);
-    //             setTimes(data.forecastTimestamps)
-    //             const current = [data.forecastTimestamps][0].filter((stamp) => stamp.forecastTimeUtc === getDate())
-    //             setWeather(current[0])
-    //         } catch (error) {
-    //             setLoading(false)
-    //             console.error("Error fetching locations:", error);
-    //         }  
-    //     }   
-    //     if (loading){
-    //         fetchData();
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                setLoading(false)
+                const data = await fetchWeather(city.code);
+                setTimes(data.forecastTimestamps)
+                const current = [data.forecastTimestamps][0].filter((stamp) => stamp.forecastTimeUtc === getDate())
+                setWeather(current[0])
+            } catch (error) {
+                setLoading(false)
+                console.error("Error fetching locations:", error);
+            }  
+        }   
+        if (loading){
+            fetchData();
             
-    //     }
-    // }, [loading, city.code])
+        }
+    }, [loading, city.code])
     return(
         <section>
             <h2>{city.name || "ass"}</h2>
